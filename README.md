@@ -8,10 +8,9 @@ iteye2markdown是一款博客迁移工具
 
 使用方式: 
 
-* 请将iteye的cookie保存在cookie.txt中, cookie将用于连接iteye.com的后台系统, 下载博客内容
+* 修改download.rb中的cookie配置, cookie将用于连接iteye.com的后台系统, 下载博客内容
 * 修改download.rb中的博客地址
-
-配置完成后, 使用
+* 使用以下命令
 ```
 ruby download.rb
 ```

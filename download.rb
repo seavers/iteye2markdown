@@ -3,7 +3,7 @@ require 'nokogiri'
 
 def process(id, date)
 	host = 'http://seavers.iteye.com'
-	cookie = IO.read('cookie.txt')
+	cookie = ''      #IO.read('cookie.txt')
 	agent = 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.14 Safari/537.36'
 
 	html = open(host + '/admin/blogs/' + id + '/edit', 'User-Agent'=>agent, 'Cookie'=>cookie).read
