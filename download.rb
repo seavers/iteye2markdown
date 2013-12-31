@@ -30,7 +30,7 @@ def process(id, date)
 		.gsub('[list]', '').gsub('[/list]', '')
 		.gsub('[b]', '*').gsub('[/b]', '*')
 		.gsub('[*]', '* ')
-		.gsub('[code]', '```').gsub('[/code]', '```')
+		.gsub('[code]', '```').gsub('[ne/code]', '```')
 		.gsub(/\[code="(.*)"\]/, '```')
 
 
@@ -68,11 +68,13 @@ def spider(page)
 		puts id + "\t" + date
 		process(id, date)
 	}
+
+	return doc.search('.pagination a.next_page').length == 0
 end
 
 ##process('1416013', '2013-12-31 14:01')
-(1..5).each {|page|
-	spider(page)
+(1..100).each {|page|
+	break if spider(page)
 }
 
 #process('1853687', '2013-06-03 19:56')
