@@ -22,7 +22,7 @@ def process(id, date)
 		.gsub('[size=medium]', '####')
 		.gsub('[size=small]', '')
 		.gsub('[size=x-small]', '')
-		.gsub('[size=xx-small]', '');
+		.gsub('[size=xx-small]', '')
 		.gsub('[/size]', '')
 		.gsub(/\[url=(.*)\](.*)\[\/url\]/, '[\2](\1)')
 		.gsub('[url]', '').gsub('[/url]', '')
@@ -65,7 +65,7 @@ def spider(page)
 	doc.search('.blog_main').each {|x|
 		id = x.search('h3 a').attr('href').text[/[0-9]+/, 0]
 		date = x.search('.blog_bottom .date').text
-		puts id, date
+		puts id + "\t" + date
 		process(id, date)
 	}
 end
